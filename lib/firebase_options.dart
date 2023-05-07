@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBucf5s-QomaO2JyvxJn3qAnM2NcZkMbIM',
-    appId: '1:1052066387597:android:28649d0cc2b45cb630b4c4',
+    appId: '1:1052066387597:android:297b35ed0ab1ae5430b4c4',
     messagingSenderId: '1052066387597',
     projectId: 'storage-check-83eb4',
     storageBucket: 'storage-check-83eb4.appspot.com',
@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1052066387597',
     projectId: 'storage-check-83eb4',
     storageBucket: 'storage-check-83eb4.appspot.com',
+    androidClientId: '1052066387597-hcs9neebdu5elcihu7l6c5000729uc5s.apps.googleusercontent.com',
     iosClientId: '1052066387597-dln1chc6betk8attgaes1g3b2qn4tqrd.apps.googleusercontent.com',
     iosBundleId: 'com.example.firebaseFlutterBoth',
   );

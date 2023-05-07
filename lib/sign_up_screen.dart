@@ -1,3 +1,4 @@
+import 'package:firebase_flutter_both/otp_screen.dart';
 import 'package:firebase_flutter_both/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -95,10 +96,13 @@ class SignUpScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
+                    SignUpController.instance
+                        .phoneAuntification(controller.phoneNumber.text.trim());
                     // _formKey.currentState!.save();
-                    SignUpController.instance.registerUser(
-                        controller.email.text.trim(),
-                        controller.password.text.trim());
+                    // SignUpController.instance.registerUser(
+                    //     controller.email.text.trim(),
+                    //     controller.password.text.trim());
+                    Get.to(const OTPScreen());
                   }
                 },
                 child: Text('Sign Up'),

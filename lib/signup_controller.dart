@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'models/user_model.dart';
 
 class SignUpController extends GetxController {
-
   static SignUpController get instance => Get.find();
 
   final email = TextEditingController();
@@ -24,4 +23,7 @@ class SignUpController extends GetxController {
   // Future<void> createUser(UserModel user) async {
   //   await userRepo.createUser(user);
   // }
+  void phoneAuntification(String phoneNumber) {
+    AuthenticationRepository.instance.phoneAuthentication(phoneNumber);
+  }
 }
