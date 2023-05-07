@@ -1,6 +1,3 @@
-import 'dart:html';
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_flutter_both/dashboard_screen.dart';
 import 'package:firebase_flutter_both/repository/authentication_repository/exception/signup_email_password_failure.dart';
