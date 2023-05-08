@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'models/user_model.dart';
+import 'otp_screen.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
@@ -13,16 +14,24 @@ class SignUpController extends GetxController {
   final nickName = TextEditingController();
   final phoneNumber = TextEditingController();
 
-  // final userRepo = Get.put(UserRepository());
+  final userRepo = Get.put(UserRepository());
 
   void registerUser(String email, String password) {
-    AuthenticationRepository.instance
-        .createWithEmailAndPassword(email, password);
+    String? error = AuthenticationRepository.instance
+        .createWithEmailAndPassword(email, password) as String?;
+    if (error != null) {
+      Get.showSnackbar(GetSnackBar(
+        message: error.toString(),
+      ));
+    }
   }
 
-  // Future<void> createUser(UserModel user) async {
-  //   await userRepo.createUser(user);
-  // }
+  Future<void> createUser(UserModel user) async {
+    await userRepo.createUser(user);
+    phoneAuntification(user.phoneNumber);
+    Get.to(() => const OTPScreen());
+  }
+
   void phoneAuntification(String phoneNumber) {
     AuthenticationRepository.instance.phoneAuthentication(phoneNumber);
   }
