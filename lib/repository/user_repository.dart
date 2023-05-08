@@ -6,20 +6,19 @@ import 'package:get/get.dart';
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
   final _db = FirebaseFirestore.instance;
-  createUser(UserModel user) async{
-  await  _db
-        .collection("User")
-        .add(user.toJson())
-        .whenComplete(
-          () => Get.snackbar(
-            "Succes",
-            "You account has been created",
-            snackPosition: SnackPosition.BOTTOM,
-            backgroundColor: Colors.green.withOpacity(0.1),
-            colorText: Colors.green,
-          ),
-        )
-        .catchError((error, stackTrace) {
+  createUser(UserModel user) async {
+    try {
+      await _db
+          .collection("User")
+          .add(user.toJson())
+          .whenComplete(() => Get.snackbar(
+                "Succes",
+                "You account has been created",
+                snackPosition: SnackPosition.BOTTOM,
+                backgroundColor: Colors.green.withOpacity(0.1),
+                colorText: Colors.green,
+              ));
+    } catch (e) {
       Get.snackbar(
         "Error",
         "try again",
@@ -27,7 +26,8 @@ class UserRepository extends GetxController {
         backgroundColor: Colors.redAccent.withOpacity(0.1),
         colorText: Colors.red,
       );
-      print(error.toString());
-    });
+      print(e.toString());
+    }
+    ;
   }
 }

@@ -95,15 +95,14 @@ class SignUpScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    final user = UserModel(
+                    final user = await UserModel(
                       nickName: controller.nickName.text.trim(),
                       email: controller.email.text.trim(),
                       phoneNumber: controller.phoneNumber.text.trim(),
                       password: controller.password.text.trim(),
                     );
-
                     SignUpController.instance.createUser(user);
                     // _formKey.currentState!.save();
                     // SignUpController.instance.registerUser(

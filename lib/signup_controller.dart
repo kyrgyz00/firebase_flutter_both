@@ -16,8 +16,8 @@ class SignUpController extends GetxController {
 
   final userRepo = Get.put(UserRepository());
 
-  void registerUser(String email, String password) {
-    String? error = AuthenticationRepository.instance
+  void registerUser(String email, String password)async {
+    String? error = await AuthenticationRepository.instance
         .createWithEmailAndPassword(email, password) as String?;
     if (error != null) {
       Get.showSnackbar(GetSnackBar(
