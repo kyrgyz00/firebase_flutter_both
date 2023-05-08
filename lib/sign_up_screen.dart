@@ -102,7 +102,7 @@ class SignUpScreen extends StatelessWidget {
                     // SignUpController.instance.registerUser(
                     //     controller.email.text.trim(),
                     //     controller.password.text.trim());
-                    Get.to(const OTPScreen());
+                    Get.to(() => const OTPScreen());
                   }
                 },
                 child: Text('Sign Up'),
