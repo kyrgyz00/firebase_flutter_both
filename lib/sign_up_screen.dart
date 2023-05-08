@@ -32,7 +32,6 @@ class SignUpScreen extends StatelessWidget {
                 }
                 return null;
               },
-              // onSaved: (value) => _confirmPassword = value.trim(),
             ),
             TextFormField(
               controller: controller.phoneNumber,
@@ -46,7 +45,6 @@ class SignUpScreen extends StatelessWidget {
                 }
                 return null;
               },
-              // onSaved: (value) => _confirmPassword = value.trim(),
             ),
             TextFormField(
               controller: controller.email,
@@ -60,7 +58,6 @@ class SignUpScreen extends StatelessWidget {
                 }
                 return null;
               },
-              // onSaved: (value) => _email = value.trim(),
             ),
             TextFormField(
               controller: controller.password,
@@ -74,24 +71,7 @@ class SignUpScreen extends StatelessWidget {
                 }
                 return null;
               },
-              // onSaved: (value) => _password = value.trim(),
             ),
-            // TextFormField(
-            //   // controller: controller.password,
-            //   obscureText: true,
-            //   decoration: InputDecoration(
-            //     labelText: 'Confirm Password',
-            //   ),
-            //   validator: (value) {
-            //     if (value!.isEmpty) {
-            //       return 'Please confirm your password';
-            //     } else if (value != controller.password) {
-            //       return 'Passwords do not match';
-            //     }
-            //     return null;
-            //   },
-            //   // onSaved: (value) => _confirmPassword = value.trim(),
-            // ),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -104,10 +84,6 @@ class SignUpScreen extends StatelessWidget {
                       password: controller.password.text.trim(),
                     );
                     SignUpController.instance.createUser(user);
-                    // _formKey.currentState!.save();
-                    // SignUpController.instance.registerUser(
-                    //     controller.email.text.trim(),
-                    //     controller.password.text.trim());
                   }
                 },
                 child: Text('Sign Up'),

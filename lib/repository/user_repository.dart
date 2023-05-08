@@ -21,13 +21,31 @@ class UserRepository extends GetxController {
     } catch (e) {
       Get.snackbar(
         "Error",
-        "try again",
+        "try ----again",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.redAccent.withOpacity(0.1),
         colorText: Colors.red,
       );
-      print(e.toString());
+      print("ERROR ---------${e.toString()}");
     }
     ;
+  }
+
+  Future<UserModel> getUserDetails(String email) async {
+    final snapshot =
+        await _db.collection("User").where("Email", isEqualTo: email).get();
+    final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
+    return userData;
+  }
+
+  Future<List<UserModel>> allUser() async {
+    final snapshot = await _db.collection("User").get();
+    final userData =
+        snapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();
+    return userData;
+  }
+
+  Future<void> updateUserRecord(UserModel user) async {
+    await _db.collection("User").doc(user.id).update(user.toJson());
   }
 }
